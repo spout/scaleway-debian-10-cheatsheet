@@ -41,3 +41,18 @@ ufw show added
 ufw enable
 ufw status
 ```
+
+## fail2ban
+```bash
+apt install fail2ban
+nano /etc/fail2ban/jail.conf
+
+destemail = votremail@domain.com
+action = %(action_mwl)s
+
+# action_ => simple ban
+# action_mw => ban et envoi de mail
+# action_mwl => ban, envoi de mail accompagné des logs
+
+service fail2ban restart
+```
