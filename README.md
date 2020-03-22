@@ -174,3 +174,8 @@ sudo apt install gettext
 ```bash
 sudo apt install redis-server
 ```
+
+## ClamAV
+```bash
+sudo apt install clamav clamav-freshclam
+```
