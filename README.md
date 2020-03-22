@@ -216,3 +216,10 @@ sudo apt install git
 ```bash
 sudo apt install zip unzip
 ```
+
+# www-data
+```bash
+sudo usermod -g www-data spout
+sudo chown www-data:www-data /var/www
+sudo chmod g+w /var/www
+```
