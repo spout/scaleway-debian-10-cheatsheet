@@ -3,49 +3,57 @@
 ## SSH / PuTTY
 https://www.scaleway.com/en/docs/create-and-connect-to-your-server/
 
-## APT
+## Update
 ```bash
-apt update
-apt upgrade
+sudo apt update
+sudo apt upgrade
 ```
 
 ## byobu
 ```bash
-apt install byobu
+sudo apt install byobu
 byobu
 
 # Launch auto at login
 byobu-enable
 ```
 
+## SSH
+```bash
+sudo nano /etc/ssh/sshd_config
+Port 7022
+
+sudo service ssh restart
+```
+
 ## Firewall
 https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
 
 ```bash
-apt install ufw
+sudo apt install ufw
 
-nano /etc/default/ufw
+sudo nano /etc/default/ufw
 IPV6=no
 
-ufw disable
-ufw enable
+sudo ufw disable
+sudo ufw enable
 
-ufw default deny incoming
-ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 
-ufw allow ssh
-ufw allow http
-ufw allow https
+# ufw allow ssh
+sudo ufw allow 7022/tcp
+sudo ufw allow http
 
-ufw show added
-ufw enable
-ufw status
+sudo ufw show added
+sudo ufw enable
+sudo ufw status
 ```
 
 ## fail2ban
 ```bash
-apt install fail2ban
-nano /etc/fail2ban/jail.conf
+sudo apt install fail2ban
+sudo nano /etc/fail2ban/jail.conf
 
 destemail = votremail@domain.com
 action = %(action_mwl)s
@@ -54,13 +62,13 @@ action = %(action_mwl)s
 # action_mw => ban et envoi de mail
 # action_mwl => ban, envoi de mail accompagné des logs
 
-service fail2ban restart
+sudo service fail2ban restart
 ```
 
 ## Mail
 ```bash
-apt install exim4-config
-dpkg-reconfigure exim4-config
+sudo apt install exim4-config
+sudo dpkg-reconfigure exim4-config
 ```
 
 1. internet site; mail is sent and received directly using SMTP
@@ -77,10 +85,10 @@ dpkg-reconfigure exim4-config
 https://deb.sury.org/
 
 ```bash
-apt-get -y install apt-transport-https lsb-release ca-certificates
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-apt-get update
+sudo apt-get -y install apt-transport-https lsb-release ca-certificates
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+sudo apt-get update
 ```
 
 ## MariaDB
@@ -88,12 +96,12 @@ https://www.geek17.com/fr/content/debian-9-stretch-installer-et-configurer-maria
 https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-9
 
 ```bash
-apt install mariadb-server
-mysql_secure_installation
+sudo apt install mariadb-server
+sudo mysql_secure_installation
 ```
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 ```sql
@@ -109,15 +117,15 @@ mysql -u root -p
 
 ## PHP
 ```bash
-apt install php7.4-fpm php7.4-gd php7.4-mysql php7.4-pgsql php7.4-sqlite3 php7.4-mbstring php7.4-xml php7.4-intl php7.4-curl php7.4-zip php7.4-soap
-apt install php-redis
+sudo apt install php7.4-fpm php7.4-gd php7.4-mysql php7.4-pgsql php7.4-sqlite3 php7.4-mbstring php7.4-xml php7.4-intl php7.4-curl php7.4-zip php7.4-soap
+sudo apt install php-redis
 ```
 
 ## nginx
 ```bash
-apt install nginx
+sudo apt install nginx
 
-nano /etc/nginx/sites-available/default
+sudo nano /etc/nginx/sites-available/default
 
 root /var/www;
 index index.php index.html index.htm
@@ -126,13 +134,13 @@ index index.php index.html index.htm
 # Uncomment include snippets/fastcgi-php.conf;
 # Uncomment fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
 
-service nginx reload
+sudo service nginx reload
 
-chown www-data:www-data /var/www
-chmod g+w /var/www
+sudo chown www-data:www-data /var/www
+sudo chmod g+w /var/www
 
 # Gzip
-nano /etc/nginx/nginx.conf
+sudo nano /etc/nginx/nginx.conf
 # Uncomment:
 gzip_vary on;
 gzip_proxied any;
@@ -141,9 +149,9 @@ gzip_buffers 16 8k;
 gzip_http_version 1.1;
 gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
 
-nano /etc/nginx/nginx.conf
+sudo nano /etc/nginx/nginx.conf
 # Uncomment:
 server_tokens off;
 
-service nginx reload
+sudo service nginx reload
 ```
