@@ -18,6 +18,12 @@ byobu
 byobu-enable
 ```
 
+## New user
+```bash
+adduser spout
+usermod -g www-data spout
+```
+
 ## SSH
 ```bash
 sudo nano /etc/ssh/sshd_config
