@@ -223,3 +223,21 @@ sudo usermod -g www-data spout
 sudo chown www-data:www-data /var/www
 sudo chmod g+w /var/www
 ```
+
+## Backup
+
+### Rclone
+https://rclone.org/
+https://www.scaleway.com/en/docs/how-to-migrate-object-storage-buckets-with-rclone/
+
+```bash
+curl https://rclone.org/install.sh | sudo bash
+```
+
+```bash
+sudo wget https://raw.githubusercontent.com/spout/debian-10-install-cheatsheet/master/backup.php -O /opt/backup.php
+sudo nano /opt/backup.php
+sudo chmod +x /opt/backup.php
+sudo ln -s /opt/backup.php /etc/cron.daily/backup
+sudo run-parts --test /etc/cron.daily
+```
