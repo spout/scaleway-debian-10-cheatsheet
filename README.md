@@ -200,3 +200,8 @@ sudo apt install curl
 ```bash
 sudo apt install git
 ```
+
+## ZIP
+```bash
+sudo apt install zip unzip
+```
