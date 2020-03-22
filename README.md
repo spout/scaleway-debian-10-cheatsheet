@@ -112,3 +112,38 @@ mysql -u root -p
 apt install php7.4-fpm php7.4-gd php7.4-mysql php7.4-pgsql php7.4-sqlite3 php7.4-mbstring php7.4-xml php7.4-intl php7.4-curl php7.4-zip php7.4-soap
 apt install php-redis
 ```
+
+## nginx
+```bash
+apt install nginx
+
+nano /etc/nginx/sites-available/default
+
+root /var/www;
+index index.php index.html index.htm
+
+# Uncomment location ~\.php$ {
+# Uncomment include snippets/fastcgi-php.conf;
+# Uncomment fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+
+service nginx reload
+
+chown www-data:www-data /var/www
+chmod g+w /var/www
+
+# Gzip
+nano /etc/nginx/nginx.conf
+# Uncomment:
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+nano /etc/nginx/nginx.conf
+# Uncomment:
+server_tokens off;
+
+service nginx reload
+```
