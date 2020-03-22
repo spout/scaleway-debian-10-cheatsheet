@@ -24,6 +24,11 @@ adduser spout
 usermod -g www-data spout
 ```
 
+## sudo
+```bash
+adduser spout sudo
+```
+
 ## SSH
 ```bash
 sudo nano /etc/ssh/sshd_config
