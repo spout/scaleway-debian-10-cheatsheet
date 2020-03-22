@@ -82,3 +82,27 @@ wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 apt-get update
 ```
+
+## MariaDB
+https://www.geek17.com/fr/content/debian-9-stretch-installer-et-configurer-mariadb-65
+https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-9
+
+```bash
+apt install mariadb-server
+mysql_secure_installation
+```
+
+```bash
+mysql -u root -p
+```
+
+```sql
+USE mysql;
+UPDATE user SET plugin='' WHERE user='root';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+```bash
+mysql -u root -p
+```
