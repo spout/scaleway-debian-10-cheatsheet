@@ -155,3 +155,12 @@ server_tokens off;
 
 sudo service nginx reload
 ```
+
+## Locales
+```bash
+sudo dpkg-reconfigure locales
+
+# fr_FR.UTF-8
+
+locale -a
+```
