@@ -241,3 +241,8 @@ sudo chmod +x /opt/backup.php
 sudo ln -s /opt/backup.php /etc/cron.daily/backup
 sudo run-parts --test /etc/cron.daily
 ```
+
+## Supervisor
+```bash
+sudo apt install supervisor
+```
