@@ -92,6 +92,8 @@ sudo dpkg-reconfigure exim4-config
 8. Delivery method: mbox format
 9. Split configuration into small files: NO
 
+https://www.scaleway.com/fr/faq/pourquoi-je-ne-peux-pas-envoyer-de-mail/
+
 ## DEB.SURY.ORG
 https://deb.sury.org/
 
