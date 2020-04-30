@@ -94,6 +94,12 @@ sudo dpkg-reconfigure exim4-config
 
 https://www.scaleway.com/fr/faq/pourquoi-je-ne-peux-pas-envoyer-de-mail/
 
+```bash
+sudo nano /etc/exim4/update-exim4.conf.conf
+
+MAIN_HARDCODE_PRIMARY_HOSTNAME=foo-bar-baz.pub.cloud.scaleway.com
+```
+
 ## DEB.SURY.ORG
 https://deb.sury.org/
 
