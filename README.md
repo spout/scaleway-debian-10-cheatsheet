@@ -98,6 +98,7 @@ https://www.scaleway.com/fr/faq/pourquoi-je-ne-peux-pas-envoyer-de-mail/
 sudo nano /etc/exim4/update-exim4.conf.conf
 
 MAIN_HARDCODE_PRIMARY_HOSTNAME=foo-bar-baz.pub.cloud.scaleway.com
+disable_ipv6=true
 ```
 
 ## DEB.SURY.ORG
