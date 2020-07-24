@@ -98,7 +98,11 @@ https://www.scaleway.com/fr/faq/pourquoi-je-ne-peux-pas-envoyer-de-mail/
 sudo nano /etc/exim4/update-exim4.conf.conf
 
 MAIN_HARDCODE_PRIMARY_HOSTNAME=foo-bar-baz.pub.cloud.scaleway.com
-disable_ipv6=true
+
+# https://askubuntu.com/a/1180793/1108984
+nano /etc/exim4/exim4.conf.template # add "disable_ipv6 = true" in the main conf section
+update-exim4.conf
+service exim4 restart
 ```
 
 ## DEB.SURY.ORG
