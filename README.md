@@ -44,7 +44,7 @@ https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-uf
 sudo apt install ufw
 
 sudo nano /etc/default/ufw
-IPV6=no
+IPV6=yes
 
 sudo ufw disable
 sudo ufw enable
